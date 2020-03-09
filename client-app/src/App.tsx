@@ -1,8 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import axios from "axios";
 
 function App() {
+  const [value, setValue] = React.useState([]);
+  React.useEffect(() => {
+    axios({
+      method: "get",
+      url: "http://localhost:5000/api/values"
+    }).then(res => setValue(res.data));
+  }, []);
   return (
     <div className="App">
       <header className="App-header">
