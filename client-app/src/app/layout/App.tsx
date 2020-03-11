@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { IActivity } from "./models/activity";
+import NavBar from "../../features/nav/NavBar";
 
 interface IState {
   activities: IActivity[];
@@ -15,11 +16,7 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </header>
+      <NavBar />
       <div>
         <ul>
           {activities.map((activity, index) => (
