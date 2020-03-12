@@ -6,52 +6,52 @@ import { IActivity } from "../../../app/models/activity";
 interface IProps {
   setEditMode: (editMode: boolean) => void;
   activity: IActivity;
-  createActivity: (activity: IActivity) => void;
-  editActivity: (activity: IActivity) => void;
+  // createActivity: (activity: IActivity) => void;
+  // editActivity: (activity: IActivity) => void;
 }
 
 const ActivityForm: React.FC<IProps> = ({
   setEditMode,
-  activity: initialFormState,
-  editActivity,
-  createActivity
+  activity: initialFormState
+  // editActivity,
+  // createActivity
 }) => {
-  //   const initializeForm = () => {
-  //     if (initialFormState) {
-  //       return initialFormState;
-  //     } else {
-  //       return {
-  //         id: "",
-  //         title: "",
-  //         category: "",
-  //         description: "",
-  //         date: "",
-  //         city: "",
-  //         venue: ""
-  //       };
-  //     }
-  //   };
+  const initializeForm = () => {
+    if (initialFormState) {
+      return initialFormState;
+    } else {
+      return {
+        id: "",
+        title: "",
+        category: "",
+        description: "",
+        date: "",
+        city: "",
+        venue: ""
+      };
+    }
+  };
 
-  //   const [activity, setActivity] = useState<IActivity>(initializeForm);
+  const [activity, setActivity] = useState<IActivity>(initializeForm);
 
-  // const handleSubmit = () => {
-  //   if (activity.id.length === 0) {
-  //     let newActivity = {
-  //       ...activity,
-  //       id: uuid()
-  //     };
-  //     createActivity(newActivity);
-  //   } else {
-  //     editActivity(activity);
-  //   }
-  // };
+  const handleSubmit = () => {
+    if (activity.id.length === 0) {
+      let newActivity = {
+        ...activity
+        // id: uuid()
+      };
+      // createActivity(newActivity);
+    } else {
+      // editActivity(activity);
+    }
+  };
 
-  // const handleInputChange = (
-  //   event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
-  // ) => {
-  //   const { name, value } = event.currentTarget;
-  //   setActivity({ ...activity, [name]: value });
-  // };
+  const handleInputChange = (
+    event: FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = event.currentTarget;
+    setActivity({ ...activity, [name]: value });
+  };
 
   return (
     <Segment clearing>
