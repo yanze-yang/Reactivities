@@ -8,11 +8,13 @@ interface IProps {
   // setSelectedActivity: (activity: IActivity | null) => void;
 }
 
-const ActivityDetails: React.FC<IProps> = ({
-  activity
-  // setEditMode,
-  // setSelectedActivity
-}) => {
+const ActivityDetails: React.FC<IProps> = (
+  {
+    // activity
+    // setEditMode,
+    // setSelectedActivity
+  }
+) => {
   return (
     <Card fluid>
       <Image
