@@ -5,12 +5,17 @@ import { IActivity } from "../models/activity";
 import NavBar from "../../features/nav/NavBar";
 import ActivityDashboard from "../../features/activites/dashboard/ActivityDashboard";
 
-interface IState {
-  activities: IActivity[];
-}
-
-function App() {
+const App = () => {
   const [activities, setActivities] = useState<IActivity[]>([]);
+  const [selectedActivity, setSelectedActivity] = useState<
+    IActivity | null | undefined
+  >(null);
+
+  const handleSelectActivbity = (id: string) => {
+    const value = activities.find(a => a.id === id);
+    setSelectedActivity(value);
+  };
+
   useEffect(() => {
     axios
       .get<IActivity[]>("http://localhost:5000/api/activities")
@@ -20,10 +25,14 @@ function App() {
     <Fragment>
       <Container style={{ marginTop: "7em" }}>
         <NavBar />
-        <ActivityDashboard activities={activities} />
+        <ActivityDashboard
+          activities={activities}
+          selectActivity={handleSelectActivbity}
+          selectedActivity={selectedActivity}
+        />
       </Container>
     </Fragment>
   );
-}
+};
 
 export default App;

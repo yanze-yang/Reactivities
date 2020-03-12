@@ -6,18 +6,27 @@ import ActivityDetails from "../details/ActivityDetails";
 
 interface IProps {
   activities: IActivity[];
+  selectActivity: (id: string) => void;
+  selectedActivity: IActivity | null | undefined;
 }
 
-const ActivityDashboard: React.FC<IProps> = ({ activities }) => {
+const ActivityDashboard: React.FC<IProps> = ({
+  activities,
+  selectActivity,
+  selectedActivity
+}) => {
   return (
     <Grid>
       <Grid.Column width={10}>
         <List>
-          <ActivityList activities={activities} />
+          <ActivityList
+            activities={activities}
+            selectActivity={selectActivity}
+          />
         </List>
       </Grid.Column>
       <Grid.Column width={6}>
-        <ActivityDetails />
+        {selectedActivity && <ActivityDetails activity={selectedActivity} />}
       </Grid.Column>
     </Grid>
   );
