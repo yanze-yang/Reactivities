@@ -11,9 +11,15 @@ const App = () => {
     IActivity | null | undefined
   >(null);
 
+  const [editMode, setEditMode] = useState(false);
+
   const handleSelectActivbity = (id: string) => {
-    const value = activities.find(a => a.id === id);
-    setSelectedActivity(value);
+    setSelectedActivity(activities.find(a => a.id === id));
+  };
+
+  const handleOpenCreateForm = () => {
+    setSelectedActivity(null);
+    setEditMode(true);
   };
 
   useEffect(() => {
@@ -29,6 +35,8 @@ const App = () => {
           activities={activities}
           selectActivity={handleSelectActivbity}
           selectedActivity={selectedActivity}
+          editMode={editMode}
+          setEditMode={setEditMode}
         />
       </Container>
     </Fragment>

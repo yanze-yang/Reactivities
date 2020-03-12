@@ -4,13 +4,13 @@ import { IActivity } from "../../../app/models/activity";
 
 interface IProps {
   activity: IActivity;
-  // setEditMode: (editMode: boolean) => void;
+  setEditMode: (editMode: boolean) => void;
   // setSelectedActivity: (activity: IActivity | null) => void;
 }
 
 const ActivityDetails: React.FC<IProps> = ({
-  activity
-  // setEditMode,
+  activity,
+  setEditMode
   // setSelectedActivity
 }) => {
   return (
@@ -28,7 +28,7 @@ const ActivityDetails: React.FC<IProps> = ({
       <Card.Content extra>
         <Button.Group widths={2}>
           <Button
-            // onClick={() => setEditMode(true)}
+            onClick={() => setEditMode(true)}
             basic
             color="blue"
             content="Edit"
