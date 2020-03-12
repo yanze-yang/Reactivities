@@ -5,13 +5,13 @@ import { IActivity } from "../../../app/models/activity";
 interface IProps {
   activity: IActivity;
   setEditMode: (editMode: boolean) => void;
-  // setSelectedActivity: (activity: IActivity | null) => void;
+  setSelectedActivity: (activity: IActivity | null) => void;
 }
 
 const ActivityDetails: React.FC<IProps> = ({
   activity,
-  setEditMode
-  // setSelectedActivity
+  setEditMode,
+  setSelectedActivity
 }) => {
   return (
     <Card fluid>
@@ -22,8 +22,10 @@ const ActivityDetails: React.FC<IProps> = ({
       />
       <Card.Content>
         <Card.Header>{activity.title}</Card.Header>
-        <Card.Meta>{/* <span>{activity.date}</span> */}</Card.Meta>
-        {/* <Card.Description>{activity.description}</Card.Description> */}
+        <Card.Meta>
+          <span>{activity.date}</span>
+        </Card.Meta>
+        <Card.Description>{activity.description}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <Button.Group widths={2}>
@@ -34,7 +36,7 @@ const ActivityDetails: React.FC<IProps> = ({
             content="Edit"
           />
           <Button
-            // onClick={() => setSelectedActivity(null)}
+            onClick={() => setSelectedActivity(null)}
             basic
             color="grey"
             content="Cancel"

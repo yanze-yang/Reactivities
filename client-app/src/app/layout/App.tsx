@@ -30,13 +30,14 @@ const App = () => {
   return (
     <Fragment>
       <Container style={{ marginTop: "7em" }}>
-        <NavBar />
+        <NavBar openCreateForm={handleOpenCreateForm} />
         <ActivityDashboard
           activities={activities}
           selectActivity={handleSelectActivbity}
           selectedActivity={selectedActivity}
           editMode={editMode}
           setEditMode={setEditMode}
+          setSelectedActivity={setSelectedActivity}
         />
       </Container>
     </Fragment>
