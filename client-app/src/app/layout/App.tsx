@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
+import { Container } from "semantic-ui-react";
 import axios from "axios";
-import { IActivity } from "./models/activity";
+import { IActivity } from "../models/activity";
 import NavBar from "../../features/nav/NavBar";
+import ActivityDashboard from "../../features/activites/dashboard/ActivityDashboard";
 
 interface IState {
   activities: IActivity[];
@@ -15,16 +17,12 @@ function App() {
       .then(res => setActivities(res.data));
   }, []);
   return (
-    <div className="App">
-      <NavBar />
-      <div>
-        <ul>
-          {activities.map((activity, index) => (
-            <li key={index}>{activity.title}</li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <Fragment>
+      <Container style={{ marginTop: "7em" }}>
+        <NavBar />
+        <ActivityDashboard activities={activities} />
+      </Container>
+    </Fragment>
   );
 }
 
