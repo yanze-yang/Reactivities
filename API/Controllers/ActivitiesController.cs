@@ -29,5 +29,14 @@ namespace API.Controllers
         {
             return await _mediator.Send(new Details.Query { Id = id });
         }
+
+        [HttpPost]
+        // API controller attribute, witch is sammer
+        public async Task<ActionResult<Unit>> Create(Create.Command command)
+        //  No API controller attribute
+        // public async Task<ActionResult<Unit>> Create([FromBody]Create.Command command)
+        {
+            return await _mediator.Send(command);
+        }
     }
 }
