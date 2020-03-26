@@ -2,15 +2,15 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using Domain;
+using FluentValidation;
 using MediatR;
 using Persistence;
-using FluentValidation;
 
 namespace Application.Activities
 {
     public class Create
     {
-        public class Command : IRequest<Unit>
+        public class Command : IRequest
         {
             public Guid Id { get; set; }
             public string Title { get; set; }
@@ -40,7 +40,6 @@ namespace Application.Activities
             public Handler(DataContext context)
             {
                 _context = context;
-
             }
 
             public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
@@ -55,6 +54,7 @@ namespace Application.Activities
                     City = request.City,
                     Venue = request.Venue
                 };
+
                 _context.Activities.Add(activity);
                 var success = await _context.SaveChangesAsync() > 0;
 

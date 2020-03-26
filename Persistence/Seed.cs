@@ -11,7 +11,8 @@ namespace Persistence
         {
             if (!context.Activities.Any())
             {
-                var activities = new List<Activity> {
+                var activities = new List<Activity>
+                {
                     new Activity
                     {
                         Title = "Past Activity 1",

@@ -27,14 +27,11 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Activity>> Details(Guid id)
         {
-            return await _mediator.Send(new Details.Query { Id = id });
+            return await _mediator.Send(new Details.Query{Id = id});
         }
 
         [HttpPost]
-        // API controller attribute, witch is sammer
         public async Task<ActionResult<Unit>> Create(Create.Command command)
-        //  No API controller attribute
-        // public async Task<ActionResult<Unit>> Create([FromBody]Create.Command command)
         {
             return await _mediator.Send(command);
         }
@@ -45,10 +42,11 @@ namespace API.Controllers
             command.Id = id;
             return await _mediator.Send(command);
         }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
-            return await _mediator.Send(new Delete.Command { Id = id });
+            return await _mediator.Send(new Delete.Command{Id = id});
         }
     }
 }

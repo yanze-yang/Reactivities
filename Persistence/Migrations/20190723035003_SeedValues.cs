@@ -2,7 +2,7 @@
 
 namespace Persistence.Migrations
 {
-    public partial class SeedVlaues : Migration
+    public partial class SeedValues : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
