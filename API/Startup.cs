@@ -45,7 +45,7 @@ namespace API
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseMiddleware<ErrorHandlingMiddleware>();
-            
+
             if (env.IsDevelopment())
             {
                 // app.UseDeveloperExceptionPage();
@@ -56,9 +56,12 @@ namespace API
                 // app.UseHsts();
             }
 
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
             // app.UseHttpsRedirection();
             app.UseCors("CorsPolicy");
             app.UseMvc();
+
         }
     }
 }
