@@ -2,7 +2,36 @@
 
 ## Introduction
 
-The Activity App is a web app built with **React** and **ASP.NET CORE**.
+The Activity App (similar to a simplified Meetup) is a web application built with **.Net Core**, **React** (with **Typescript**) and **Mobx**, by following the tutorial on Udemy: [Complete guide to building an app with .Net Core and React](https://www.udemy.com/course/complete-guide-to-building-an-app-with-net-core-and-react/)
+
+👋[→ Try the app](https://activity-react-app.azurewebsites.net/)
+
+## ToDo
+
+*I still keep building the app. *
+
+So far, users can create activities include descriptions, date, members, etc. Other users are allowed to check the activity details and join the activities.
+
+What to do:
+
+ASP.NET Core
+
+- [ ] Authorization API / Database
+
+- [ ] Photo upload functionality
+
+- [ ] SignalR
+
+React
+
+- [ ] Login $ regisration pages
+
+- [ ] Photo upload page
+
+- [ ] Follower & following features
+
+- [ ] Pagnation
+
 
 On the web app, users can create activities include descriptions, date, members, etc. Other users are allowed to check the activity details and join the activities.
 
