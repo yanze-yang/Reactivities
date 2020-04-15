@@ -8,7 +8,7 @@ The Activity App (similar to a simplified Meetup) is a web application built wit
 
 ## ToDo
 
-*I still keep building the app. *
+*I still keep building the app.*
 
 So far, users can create activities include descriptions, date, members, etc. Other users are allowed to check the activity details and join the activities.
 
